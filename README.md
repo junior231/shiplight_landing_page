@@ -28,6 +28,14 @@ npm start
 # Build for production
 npm run build
 ```
+## Screenshots
+
+### Hero Section (Light Mode)
+![Hero Section Screenshot](./screenshots/hero-light.png)
+
+### Hero Section (Dark Mode)
+![Hero Section Screenshot](./screenshots/hero-dark.png)
+
 
 ## 👤 Author
 Collins Ilo
