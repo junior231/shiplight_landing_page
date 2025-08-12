@@ -27,12 +27,13 @@ npm start
 
 # Build for production
 npm run build
+```
 
-👤 Author
+## 👤 Author
 Collins Ilo
 Frontend & Backend Developer | UI/UX Consultant | Product Owner
 Portfolio • GitHub • LinkedIn
 
-📜 License
+## 📜 License
 This project is licensed under the MIT License.
 You are free to use, modify, and distribute this software, provided that the original author is credited.
