@@ -1,13 +1,168 @@
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+/* =========================================================
+   GLOBAL + THEME + RESPONSIVE (all-in-one)
+   ========================================================= */
+
+/* Smooth anchor scrolling */
+html { scroll-behavior: smooth; }
+
+/* ---- Design tokens for spacing/scale ---- */
+:root{
+  --maxw: 1100px;
+  --radius: 16px;
+  --space: clamp(56px, 8vw, 96px);
+  --space-sm: clamp(40px, 6vw, 64px);
+  --link-color: #2563eb;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+/* Base */
+html, body {
+  margin: 0;
+  padding: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen,
+    Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  background: var(--ant-color-bg-layout, #f6f7fb);
+  color: var(--ant-color-text, #111827);
 }
+
+/* =========================================================
+   HEADER (works with the Drawer version you implemented)
+   ========================================================= */
+.site-header{
+  position: static;                 /* not sticky, per your preference */
+  background: transparent;
+  padding: 8px 12px;
+}
+.header-inner{
+  max-width: var(--maxw);
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+.logo{
+  font-weight: 800;
+  white-space: nowrap;              /* prevents "Shipl ight" wrapping */
+  font-size: clamp(16px, 3.6vw, 18px);
+}
+.nav-desktop a{
+  color: inherit; text-decoration: none;
+}
+.nav-desktop a:hover{ text-decoration: underline; }
+
+/* Hide the small "Dark" label on tiny screens (desktop bar) */
+.dark-label{ opacity:.7; }
+@media (max-width: 420px){
+  .dark-label{ display: none; }
+}
+
+/* Drawer extras (mobile menu) */
+.drawer-switch{
+  margin-top: 8px; padding-top: 12px;
+  border-top: 1px solid var(--ant-border-color, #eee);
+  display: flex; align-items: center; justify-content: space-between;
+}
+
+/* =========================================================
+   GLOBAL LAYOUT + TYPOGRAPHY
+   ========================================================= */
+.section{ max-width: var(--maxw); margin: 0 auto; padding: var(--space) 16px; }
+#hero.section{ padding-top: calc(var(--space) + 8px); padding-bottom: var(--space-sm); }
+
+.h1{ font-size: clamp(28px, 5vw, 48px); line-height: 1.15; letter-spacing: -0.01em; font-weight: 700; }
+.lede{ font-size: clamp(14px, 1.8vw, 18px); line-height: 1.6; color: rgba(0,0,0,.65); }
+
+/* =========================================================
+   DARK MODE (raise contrast)
+   ========================================================= */
+.ant-dark {
+  background-color: var(--ant-color-bg-layout, #0b111b);
+  color: var(--ant-color-text, #e5e7eb);
+}
+
+.ant-dark #hero .h1,
+.ant-dark #hero h1 { color: #f3f4f6; }
+.ant-dark #hero .lede { color: rgba(6, 79, 224, 0.82); }
+
+.ant-dark .ant-typography-secondary,
+.ant-dark .ant-typography-secondary span { color: rgba(229,231,235,.82) !important; }
+
+.ant-card { border-radius: var(--radius); }
+.ant-dark .ant-card {
+  background: var(--ant-color-bg-container, #141b26);
+  border-color: rgba(255,255,255,.08);
+  color: var(--ant-color-text, #e5e7eb);
+}
+.ant-dark .ant-card .ant-typography{ color: var(--ant-color-text, #e5e7eb); }
+
+.ant-dark .ant-list,
+.ant-dark .ant-menu { background: transparent; color: var(--ant-color-text, #e5e7eb); }
+
+.ant-btn { font-weight: 600; border-radius: 999px; }
+.ant-dark .ant-btn-default{
+  color: var(--ant-color-text, #e5e7eb);
+  border-color: rgba(255,255,255,.2);
+}
+
+/* === Dark-mode readability hardening === */
+:where(.ant-dark) p,
+:where(.ant-dark) .ant-typography,
+:where(.ant-dark) .ant-card p,
+:where(.ant-dark) .ant-card .ant-typography {
+  color: rgba(238, 232, 232, 0.61) !important; /* near-white for body text */
+}
+
+:where(.ant-dark) .lede,
+:where(.ant-dark) .ant-typography-secondary,
+:where(.ant-dark) .ant-typography-secondary span {
+  color: rgba(232, 234, 238, 0.84) !important;
+}
+
+:where(.ant-dark) .muted,
+:where(.ant-dark) .ant-typography .ant-typography-secondary .muted {
+  color: rgba(232, 234, 238, 0.78) !important;
+}
+
+/* =========================================================
+   FOOTER
+   ========================================================= */
+footer{
+  display:flex; justify-content:space-between; align-items:center;
+  gap:16px; padding:16px 20px;
+  border-top:1px solid var(--ant-border-color,#eee);
+  background: var(--ant-layout-bg, #f8f8f8);
+  color: inherit;
+}
+.back-to-top{
+  background:none; border:none; color: var(--link-color);
+  font-size:.9rem; font-weight:500; cursor:pointer; transition: color .2s ease;
+}
+.back-to-top:hover{ color:#005fcc; text-decoration: underline; }
+
+/* =========================================================
+   RESPONSIVE TWEAKS (mobile-first polish)
+   ========================================================= */
+
+/* Slightly tighter side padding on very small devices */
+@media (max-width: 480px){
+  .section{ padding: var(--space-sm) 14px; }
+  /* Reduce hero vertical gap so nav never collides */
+  #hero.section{ padding-top: var(--space-sm); padding-bottom: var(--space-sm); }
+  /* Keep icon/title rows in feature cards from feeling cramped */
+  .ant-card .card-head-row{ margin-bottom: 4px !important; }
+}
+
+/* Keep nav compact on small phones */
+@media (max-width: 420px){
+  .nav-desktop{ gap: 10px !important; }
+}
+
+/* Utility if you need to hide anything only on small screens */
+@media (max-width: 768px){
+  .hide-sm{ display:none !important; }
+}
+
+.lede-dark {
+  color: rgba(255, 255, 255, 0.822);
+}
+
