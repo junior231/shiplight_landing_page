@@ -13,10 +13,10 @@ A responsive, animated landing page for a micro-SaaS product with dark/light mod
 ## Screenshots
 
 ### Hero Section (Light Mode)
-![Hero Section Screenshot](/screenshots/hero-light.png)
+![Hero Section Screenshot](/screenshots/hero_light.png)
 
 ### Hero Section (Dark Mode)
-![Hero Section Screenshot](/screenshots/hero-dark.png)
+![Hero Section Screenshot](/screenshots/hero_dark.png)
 
 ## Getting Started (Local Setup)
 
