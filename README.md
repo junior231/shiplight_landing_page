@@ -10,6 +10,20 @@ A responsive, animated landing page for a micro-SaaS product with dark/light mod
 - **Create React App**
 - **CSS3** (custom global styling & responsive design)
 
+## Screenshots
+
+### Hero Section (Light Mode)
+![Hero Section Screenshot](/screenshots/hero-light.png)
+
+### Hero Section (Dark Mode)
+![Hero Section Screenshot](/screenshots/hero-dark.png)
+
+## Getting Started (Local Setup)
+
+### Prerequisites
+- **Node.js** >= 16.x
+- **npm** or **yarn**
+
 ## ⚙️ Setup & Installation
 
 ```bash
@@ -28,19 +42,10 @@ npm start
 # Build for production
 npm run build
 ```
-## Screenshots
-
-### Hero Section (Light Mode)
-![Hero Section Screenshot](./screenshots/hero-light.png)
-
-### Hero Section (Dark Mode)
-![Hero Section Screenshot](./screenshots/hero-dark.png)
-
 
 ## 👤 Author
 Collins Ilo
 Frontend & Backend Developer | UI/UX Consultant | Product Owner
-Portfolio • GitHub • LinkedIn
 
 ## 📜 License
 This project is licensed under the MIT License.
